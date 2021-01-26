@@ -1,7 +1,7 @@
 <template>
     <div class="login-wrap">
         <div class="ms-login">
-            <div class="ms-title">后台管理系统</div>
+            <div class="ms-title">桥梁健康监测与智能管养系统</div>
             <el-form :model="param" :rules="rules" ref="login" label-width="0px" class="ms-content">
                 <el-form-item prop="username">
                     <el-input v-model="param.username" placeholder="username">
@@ -21,7 +21,7 @@
                 <div class="login-btn">
                     <el-button type="primary" @click="submitForm()">登录</el-button>
                 </div>
-                <p class="login-tips">Tips : 用户名和密码随便填。</p>
+            
             </el-form>
         </div>
     </div>
@@ -36,8 +36,14 @@ export default {
                 password: '123123',
             },
             rules: {
-                username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-                password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+               username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },//必填项验证
+          { min: 5, max: 12, message: "长度在 5 到 12 个字符", trigger: "blur" },
+        ],
+              password:[
+            { required: true, message: '请输入用户名所对应的密码', trigger: 'blur' },//必填项验证
+            { min: 6, max: 12, message: '长度在 6到 12 个字符', trigger: 'blur' }
+        ]
             },
         };
     },
@@ -45,11 +51,12 @@ export default {
         submitForm() {
             this.$refs.login.validate(valid => {
                 if (valid) {
+                    // 调用后台
                     this.$message.success('登录成功');
                     localStorage.setItem('ms_username', this.param.username);
-                    this.$router.push('/');
+                    this.$router.push('/dashboard');
                 } else {
-                    this.$message.error('请输入账号和密码');
+                    this.$message.error('请输入正确的账号和密码');
                     console.log('error submit!!');
                     return false;
                 }
@@ -64,7 +71,7 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: url(../../assets/img/login-bg.jpg);
+    background-image: url(../../assets/img/bridge.jpeg);
     background-size: 100%;
 }
 .ms-title {

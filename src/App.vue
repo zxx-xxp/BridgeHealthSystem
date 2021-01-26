@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <!-- https://www.zhihu.com/collection/201606705 -->
         <router-view></router-view>
     </div>
 </template>

@@ -56,11 +56,30 @@ export default {
         return {
             collapse: false,
             items: [
+
                 {
-                    icon: 'el-icon-lx-home',
+                    icon: 'el-icon-lx-news',
                     index: 'dashboard',
-                    title: '系统首页'
+                    title: '系统首页',
+                    subs:[
+                          {
+                    icon: 'el-icon-lx-global',
+                    index: 'dashboard',
+                    title: '控制台'
+                   },
+                   {
+                    icon: 'el-icon-lx-global',
+                    index: 'map',
+                    title: '百度地图'
+                   },
+                    ]
                 },
+                {
+                    icon: 'el-icon-lx-punch',
+                    index: 'admin',
+                    title: '管理模块'
+                },
+              
                 {
                     icon: 'el-icon-lx-cascades',
                     index: 'table',

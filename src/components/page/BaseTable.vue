@@ -21,6 +21,8 @@
                 </el-select>
                 <el-input v-model="query.name" placeholder="用户名" class="handle-input mr10"></el-input>
                 <el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
+
+                  <el-button type="primary" @click="addDialogVisible = true">添加用户</el-button>
             </div>
             <el-table
                 :data="tableData"

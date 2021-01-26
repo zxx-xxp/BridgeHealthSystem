@@ -7,7 +7,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/dashboard'
+            redirect: '/login'
         },
         {
             path: '/',
@@ -17,17 +17,39 @@ export default new Router({
                 {
                     path: '/dashboard',
                     component: () => import(/* webpackChunkName: "dashboard" */ '../components/page/Dashboard.vue'),
-                    meta: { title: '系统首页' }
+                    meta: { title: '系统首页' },
+                  
+                },
+                { 
+                    path: '/map',
+                component: () => import(/* webpackChunkName: "icon" */ '../components/page/map.vue'),
+                meta: { title: '百度地图' }
                 },
                 {
                     path: '/icon',
                     component: () => import(/* webpackChunkName: "icon" */ '../components/page/Icon.vue'),
                     meta: { title: '自定义图标' }
                 },
+                { 
+                    path: '/personal',
+                component: () => import(/* webpackChunkName: "icon" */ '../components/page/Personal.vue'),
+                meta: { title: '个人中心' }
+                },
+            
                 {
                     path: '/table',
                     component: () => import(/* webpackChunkName: "table" */ '../components/page/BaseTable.vue'),
                     meta: { title: '基础表格' }
+                },
+                {
+                    path: '/admin',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/admin.vue'),
+                    meta: { title: '管理模块' }
+                },
+                {
+                    path:'/map',
+                    component: () => import(/* webpackChunkName: "map" */ '../components/page/map.vue'),
+                    meta: { title: '百度地图'},
                 },
                 {
                     path: '/tabs',
@@ -104,6 +126,9 @@ export default new Router({
                 }
             ]
         },
+      
+
+
         {
             path: '/login',
             component: () => import(/* webpackChunkName: "login" */ '../components/page/Login.vue'),
